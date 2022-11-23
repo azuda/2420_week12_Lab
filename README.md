@@ -43,9 +43,13 @@ Upload the files from steps 2 and 3 to your server (we used sftp here):
 
 ![sftp](images/sftp.png)
 
-Move the server block file to `/etc/nginx/sites-available` and ensure `index.html` is in the root directory:
+Move `index.html` to `/var/www/<ip>/html/`:
 
-![server_locations](images/server_locations.png)
+![index_location](images/index_location.png)
+
+Move the server block file to `/etc/nginx/sites-available`:
+
+![sb_location](images/sb_location.png)
 
 Create new soft link to server block, test nginx configuration, and restart nginx service:
 
@@ -59,4 +63,16 @@ Restart the nginx service:
 
 ## Step 6
 
+Visit your server IP in a browser. The contents of `index.html` should be served successfully.
 
+![web_page](images/web_page.png)
+
+## Step 7
+
+Setup firewall using UFW and allow incomming SSH + HTTP connections:
+
+![ufw](images/ufw.png)
+
+## Step 8
+
+Ensure you are still able to connect to server via both SSH and HTTP in browser.
